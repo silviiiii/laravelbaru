@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\wali;
+use App\Wali;
 use Illuminate\Http\Request;
 
 class WaliController extends Controller
@@ -41,10 +41,10 @@ class WaliController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\wali  $wali
+     * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function show(wali $wali)
+    public function show(Wali $wali)
     {
         //
     }
@@ -52,10 +52,10 @@ class WaliController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\wali  $wali
+     * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function edit(wali $wali)
+    public function edit(Wali $wali)
     {
         //
     }
@@ -64,10 +64,10 @@ class WaliController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\wali  $wali
+     * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, wali $wali)
+    public function update(Request $request, Wali $wali)
     {
         //
     }
@@ -75,10 +75,10 @@ class WaliController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\wali  $wali
+     * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function destroy(wali $wali)
+    public function destroy(Wali $wali)
     {
         //
     }

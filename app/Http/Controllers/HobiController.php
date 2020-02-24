@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\hobi;
+use App\Hobi;
 use Illuminate\Http\Request;
 
 class HobiController extends Controller
@@ -41,10 +41,10 @@ class HobiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\hobi  $hobi
+     * @param  \App\Hobi  $hobi
      * @return \Illuminate\Http\Response
      */
-    public function show(hobi $hobi)
+    public function show(Hobi $hobi)
     {
         //
     }
@@ -52,10 +52,10 @@ class HobiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\hobi  $hobi
+     * @param  \App\Hobi  $hobi
      * @return \Illuminate\Http\Response
      */
-    public function edit(hobi $hobi)
+    public function edit(Hobi $hobi)
     {
         //
     }
@@ -64,10 +64,10 @@ class HobiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\hobi  $hobi
+     * @param  \App\Hobi  $hobi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, hobi $hobi)
+    public function update(Request $request, Hobi $hobi)
     {
         //
     }
@@ -75,10 +75,10 @@ class HobiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\hobi  $hobi
+     * @param  \App\Hobi  $hobi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(hobi $hobi)
+    public function destroy(Hobi $hobi)
     {
         //
     }

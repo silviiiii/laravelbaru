@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\dosen;
-use App\mahasiswa;
-use App\wali;
-use App\hobi;
+
+use App\Dosen;
+use App\Mahasiswa;
+use App\Wali;
+use App\Hobi;
+
 class RelasiSeeder extends Seeder
 {
     /**
@@ -12,10 +14,11 @@ class RelasiSeeder extends Seeder
      *
      * @return void
      */
+    //jumat pekan 1
     public function run()
     {
-        //menghapus
-        DB::table('dosens')->delete();
+    	//menghapus semua sample data
+    	DB::table('dosens')->delete();
     	DB::table('mahasiswas')->delete();
     	DB::table('walis')->delete();
     	DB::table('hobis')->delete();
@@ -27,19 +30,19 @@ class RelasiSeeder extends Seeder
         ]);
         $this->command->info('Data Dosen Berhasil dibuat');
 
-        $mamat = mahasiswa::create([
+        $mamat = Mahasiswa::create([
         	'nama' => 'Mamat Karbit',
         	'nim' => '101010101',
         	'id_dosen' => $dosen->id
         ]);
 
-        $feri = mahasiswa::create([
+        $feri = Mahasiswa::create([
         	'nama' => 'Feri Ambyar Supriadi',
         	'nim' => '1010130',
         	'id_dosen' => $dosen->id
         ]);
 
-        $dadang = mahasiswa::create([
+        $dadang = Mahasiswa::create([
         	'nama' => 'Dadang',
         	'nim' => '10101324',
         	'id_dosen' => $dosen->id
@@ -47,32 +50,32 @@ class RelasiSeeder extends Seeder
         $this->command->info('Data Mahasiswa Berhasil Dibuat');
 
         //wali
-        $ahmad = wali::create([
+        $ahmad = Wali::create([
         	'nama' => 'Ahmad',
         	'id_mahasiswa' => $dadang->id
         ]);
 
-        $dudung = wali::create([
+        $dudung = Wali::create([
         	'nama' => 'Dudung',
         	'id_mahasiswa' => $mamat->id
         ]);
 
-        $basit = wali::create([
+        $basit = Wali::create([
         	'nama' => 'Basit',
         	'id_mahasiswa' => $feri->id
         ]);
         $this->command->info('Data Wali Berhasil Dibuat');
 
         //wali
-        $mancing = hobi::create([
+        $mancing = Hobi::create([
         	'hobi' => 'Mancing Keributan'
         ]);
 
-        $gaming = hobi::create([
+        $gaming = Hobi::create([
         	'hobi' => 'Dota 2'
         ]);
 
-        $mengaji = hobi::create([
+        $mengaji = Hobi::create([
         	'hobi' => 'Mengaji One Day One Ayat'
         ]);
 

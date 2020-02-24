@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class dosen extends Model
+class Wali extends Model
 {
-    protected $fillable = ['nama','nipd'];
+    protected $fillable = ['nama','id_mahasiswa'];
     public $timestamps = true;
     public function mahasiswa(){
-    	return $this->hasMany('App\mahasiswa','id_dosen');
+    	return $this->belongsTo('App\Mahasiswa','id_mahasiswa');
     }
 }
-

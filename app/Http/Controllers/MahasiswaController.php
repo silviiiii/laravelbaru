@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\mahasiswa;
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -41,10 +41,10 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function show(mahasiswa $mahasiswa)
+    public function show(Mahasiswa $mahasiswa)
     {
         //
     }
@@ -52,10 +52,10 @@ class MahasiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(mahasiswa $mahasiswa)
+    public function edit(Mahasiswa $mahasiswa)
     {
         //
     }
@@ -64,10 +64,10 @@ class MahasiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mahasiswa $mahasiswa)
+    public function update(Request $request, Mahasiswa $mahasiswa)
     {
         //
     }
@@ -75,10 +75,10 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mahasiswa $mahasiswa)
+    public function destroy(Mahasiswa $mahasiswa)
     {
         //
     }
