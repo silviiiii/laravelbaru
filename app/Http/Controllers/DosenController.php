@@ -14,36 +14,20 @@ class DosenController extends Controller
      */
     public function index()
     {
-        //
+        $dosen=dosen::all();
+        return view('dosen.index',compact('dosen'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('dosen.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $dosen = new dosen();
+        $dosen->nama=$request->nama;
+        $dosen->nipd=$request->nipd;
+        $dosen->save();
+        return redirect()->route('dosen.index')
+            ->with(['message'=>'dosen berhasil dibuat']);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Dosen  $dosen
-     * @return \Illuminate\Http\Response
-     */
     public function show(Dosen $dosen)
     {
         //
@@ -55,9 +39,10 @@ class DosenController extends Controller
      * @param  \App\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dosen $dosen)
+    public function edit($id)
     {
-        //
+        $dosen=dosen::findOrFail($id);
+        return view('dosen.show',compact('dosen'));
     }
 
     /**
@@ -67,9 +52,14 @@ class DosenController extends Controller
      * @param  \App\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dosen $dosen)
+    public function update(Request $request, $id)
     {
-        //
+        $dosen=dosen::findOrFail($id);
+        $dosen->nama=$request->nama;
+        $dosen->nipd=$request->nipd;
+        $dosen->save();
+        return redirect()->route('dosen.index')
+            ->with(['message'=>'dosen berhasil di edit']);
     }
 
     /**
@@ -78,8 +68,10 @@ class DosenController extends Controller
      * @param  \App\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dosen $dosen)
+    public function destroy($id)
     {
-        //
+        $dosen=dosen::findOrFail($id)->delete();
+        return redirect()->route('dosen.index')
+            ->with(['message'=>'dosen berhasil di hapus']);
     }
 }

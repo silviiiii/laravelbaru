@@ -72,3 +72,33 @@ Route::get('eloquent', function() {
 
     return view('eloquent',compact('mahasiswa'));
 });
+Route::get('eloquent1', function() {
+    // $hobi = Mahasiswa::get()->first();
+    // $sql = DB::table('mahasiswas')
+    // ->select('mahasiswas.nama','walis.nama as wali','dosens.nama as dosen_pembimbing','dosens.nipd as nipd_dosen')
+    // ->join('walis','walis.id_mahasiswa','=','mahasiswas.id')
+    // ->join('dosens','dosens.id','=','mahasiswas.id_dosen')
+    // ->first();
+    // dd($hobi);
+
+    $mahasiswa = Mahasiswa::with('wali','dosen','hobi')
+    ->where('nama','=','Dadang')
+    ->first();
+
+    return view('eloquent1', compact("mahasiswa"));
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//blade template
+Route::get('beranda', function () {
+    return view('beranda');
+});
+Route::get('tentang', function () {
+    return view('tentang');
+});
+Route::get('kontak', function () {
+    return view('kontak');
+});
+route::resource('dosen','DosenController');

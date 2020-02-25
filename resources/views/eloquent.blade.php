@@ -1,3 +1,6 @@
+@extends('layouts.nav')
+
+@section('konten')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,10 @@
     <title>Eloquent</title>
 </head>
 <body>
+
     @foreach($mahasiswa as $data)
     <h3>{{$data->nama}}  <small>[{{$data->nim}}]</small></h3>
-    <h5>Hobi : 
+    <h5>Hobi :
 	    @foreach($data->hobi as $val)
 	    	<small>{{$val->hobi}}</small>
 	    @endforeach
