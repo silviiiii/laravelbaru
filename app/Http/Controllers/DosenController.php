@@ -14,7 +14,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $dosen=dosen::all();
+        $dosen= Dosen::all();
         return view('dosen.index',compact('dosen'));
     }
     public function create(){
@@ -28,9 +28,10 @@ class DosenController extends Controller
         return redirect()->route('dosen.index')
             ->with(['message'=>'dosen berhasil dibuat']);
     }
-    public function show(Dosen $dosen)
+    public function show( $id)
     {
-        //
+        $dosen=dosen::findOrFail($id);
+        return view('dosen.show',compact('dosen'));
     }
 
     /**
@@ -42,7 +43,7 @@ class DosenController extends Controller
     public function edit($id)
     {
         $dosen=dosen::findOrFail($id);
-        return view('dosen.show',compact('dosen'));
+        return view('dosen.edit',compact('dosen'));
     }
 
     /**
@@ -70,7 +71,7 @@ class DosenController extends Controller
      */
     public function destroy($id)
     {
-        $dosen=dosen::findOrFail($id)->delete();
+        $dosen=dosen::findOrFail($id)->Delete();
         return redirect()->route('dosen.index')
             ->with(['message'=>'dosen berhasil di hapus']);
     }

@@ -10,7 +10,6 @@
     {{--nav--}}
     @include('layouts.nav')
     {{--end nav--}}
-    <nav>
 
     @yield('konten')
 
