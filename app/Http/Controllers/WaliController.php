@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Wali;
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class WaliController extends Controller
@@ -14,7 +15,8 @@ class WaliController extends Controller
      */
     public function index()
     {
-        //
+        $wali= Wali::with('mahasiswa')->get();
+        return view('wali.index',compact('wali'));
     }
 
     /**
@@ -24,7 +26,8 @@ class WaliController extends Controller
      */
     public function create()
     {
-        //
+        $mhs= Mahasiswa::all();
+        return view('wali.create',compact('mhs'));
     }
 
     /**
@@ -35,7 +38,12 @@ class WaliController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $wali=new wali();
+        $wali->nama= $request->nama;
+        $wali->id_mahasiswa= $request->id_mahasiswa;
+        $wali->save();
+        return redirect()->route('wali.index')
+        ->with(['message'=>'wali berhasil dibuat']);
     }
 
     /**
@@ -44,9 +52,10 @@ class WaliController extends Controller
      * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function show(Wali $wali)
+    public function show($id)
     {
-        //
+        $wali= Wali::findOrFail($id);
+        return view('wali.show',compact('wali'));
     }
 
     /**
@@ -55,9 +64,11 @@ class WaliController extends Controller
      * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function edit(Wali $wali)
+    public function edit($id)
     {
-        //
+        $mhs = Mahasiswa::all();
+        $wali = Wali::findOrFail($id);
+        return view('wali.edit',compact('wali','mhs'));
     }
 
     /**
@@ -67,9 +78,14 @@ class WaliController extends Controller
      * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wali $wali)
+    public function update(Request $request,$id)
     {
-        //
+        $wali= wali::findOrFail($id);
+        $wali->nama= $request->nama;
+        $wali->id_mahasiswa= $request->id_mahasiswa;
+        $wali->save();
+        return redirect()->route('wali.index')
+                        ->with(['message'=>'Data berhasil dibuat']);
     }
 
     /**
@@ -78,8 +94,10 @@ class WaliController extends Controller
      * @param  \App\Wali  $wali
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wali $wali)
+    public function destroy( $id)
     {
-        //
+        $wali= Wali::findOrFail($id)->delete();
+        return redirect()->route('wali.index')
+                        ->with(['message'=>'Data berhasil dihapus']);
     }
 }

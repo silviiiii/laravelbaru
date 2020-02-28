@@ -102,3 +102,6 @@ Route::get('kontak', function () {
     return view('kontak');
 });
 route::resource('dosen','DosenController');
+route::resource('hobi','HobiController');
+route::resource('mahasiswa','MahasiswaController');
+route::resource('wali','WaliController');
